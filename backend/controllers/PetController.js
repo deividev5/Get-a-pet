@@ -249,10 +249,8 @@ if (!color) {
   updateData.color = color
 }
 
-if (!images) {
-  res.status(422).json({ message: 'A imagem é obrigatória!' })
-  return
-}else{
+console.log(images)
+if (images.length > 0) {
   updateData.images = [] 
   images.map((image)=>{
     updateData.images.push(image.filename)
@@ -285,25 +283,24 @@ static async schedule (req,res){
         const token = getToken(req)
         const user = await getUserByToken(token)
     
-       
-    
-        if (pet.user.id.equals(user._id)) {
+          console.log(pet)
+
+        if (pet.user._id.equals(user._id)) {
           res.status(422).json({
             message: 'Você não pode agendar uma visita com seu próprio Pet!',
           })
           return
         }
-
-
+    
         // check if user has already adopted this pet
-    if (pet.adopter) {
-      if (pet.adopter._id.equals(user._id)) {
-        res.status(422).json({
-          message: 'Você já agendou uma visita para este Pet!',
-        })
-        return
-      }
-    }
+        if (pet.adopter) {
+          if (pet.adopter._id.equals(user._id)) {
+            res.status(422).json({
+              message: 'Você já agendou uma visita para este Pet!',
+            })
+            return
+          }
+        }
 
 
     // add user to pet
