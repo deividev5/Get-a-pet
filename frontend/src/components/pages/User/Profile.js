@@ -29,10 +29,21 @@ function Profile() {
 
     }, [token])
 
-   function onFileChange (e){
-    setPreview(e.target.files[0])
-    setUser({ ...user, [e.target.name]: e.target.files[0] })
+ function onFileChange(e) {
+  const file = e.target.files[0]
+
+  if (file) {
+    const allowedTypes = ['image/png', 'image/jpeg'] // png e jpg
+    if (!allowedTypes.includes(file.type)) {
+      setFlashMessage('Por favor, envie apenas imagens PNG ou JPG!', 'error')
+      setPreview(null)
+      return
     }
+
+    setPreview(file)
+    setUser({ ...user, [e.target.name]: file })
+  }
+}
 
 
     function handleChange (e){

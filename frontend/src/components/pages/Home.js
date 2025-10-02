@@ -14,7 +14,7 @@ function Home() {
     useEffect(()=>{
         api.get('/pets').then((response)=>{
             setPets(response.data.pets)
-            console.log(pets)
+            console.log(response.data.pets)
         })
     },[])
 
@@ -31,7 +31,7 @@ function Home() {
             pets.map((pet) => (
                  <div className={styles.pet_card}>
                          <div style={{
-                            backgroundImage: `url(${process.env.REACT_APP_API}/image/pets/${pet.images[0]})`
+                            backgroundImage: `url(${process.env.REACT_APP_API}image/pets/${pet.images[0]})`
                          }}
                          className={styles.pet_card_image}
                          ></div>
