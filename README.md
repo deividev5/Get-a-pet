@@ -14,11 +14,7 @@
 - [⚙️ Instalação & Execução](#️-instalação--execução)  
 - [🔑 Configuração / Variáveis de Ambiente](#-configuração--variáveis-de-ambiente)  
 - [📘 Documentação da API (Swagger)](#-documentação-da-api-swagger)  
-- [🌐 Endpoints / Rotas](#-endpoints--rotas)  
-- [▶️ Uso (Exemplos)](#️-uso-exemplos)  
 - [🖼️ Screenshots / Imagens](#️-screenshots--imagens)  
-- [🤝 Contribuições](#-contribuições)  
-- [📄 Licença](#-licença)  
 - [📬 Contato](#-contato) 
 
 ---
